@@ -7,18 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		700FBE8D1D0060AF00E0DC63 /* NSDate+TranslateDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 700FBE8C1D0060AF00E0DC63 /* NSDate+TranslateDate.m */; };
 		70135F621D005CDF007B346D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70135F611D005CDF007B346D /* main.m */; };
 		70135F651D005CDF007B346D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70135F641D005CDF007B346D /* AppDelegate.m */; };
 		70135F681D005CDF007B346D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70135F671D005CDF007B346D /* ViewController.m */; };
 		70135F6B1D005CDF007B346D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70135F691D005CDF007B346D /* Main.storyboard */; };
 		70135F6D1D005CDF007B346D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70135F6C1D005CDF007B346D /* Assets.xcassets */; };
 		70135F701D005CDF007B346D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70135F6E1D005CDF007B346D /* LaunchScreen.storyboard */; };
+		70663AD71D00626800659207 /* NSDate+TranslateDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70663AD61D00626800659207 /* NSDate+TranslateDate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		700FBE8B1D0060AF00E0DC63 /* NSDate+TranslateDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+TranslateDate.h"; path = "../NSDate+TranslateDate.h"; sourceTree = "<group>"; };
-		700FBE8C1D0060AF00E0DC63 /* NSDate+TranslateDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+TranslateDate.m"; path = "../NSDate+TranslateDate.m"; sourceTree = "<group>"; };
 		70135F5D1D005CDF007B346D /* TooKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TooKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70135F611D005CDF007B346D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		70135F631D005CDF007B346D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -29,6 +27,8 @@
 		70135F6C1D005CDF007B346D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70135F6F1D005CDF007B346D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		70135F711D005CDF007B346D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70663AD51D00626800659207 /* NSDate+TranslateDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TranslateDate.h"; sourceTree = "<group>"; };
+		70663AD61D00626800659207 /* NSDate+TranslateDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TranslateDate.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,15 +42,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		700FBE8F1D00619800E0DC63 /* ToolKit */ = {
-			isa = PBXGroup;
-			children = (
-				700FBE8B1D0060AF00E0DC63 /* NSDate+TranslateDate.h */,
-				700FBE8C1D0060AF00E0DC63 /* NSDate+TranslateDate.m */,
-			);
-			path = ToolKit;
-			sourceTree = "<group>";
-		};
 		70135F541D005CDF007B346D = {
 			isa = PBXGroup;
 			children = (
@@ -75,10 +66,10 @@
 				70135F661D005CDF007B346D /* ViewController.h */,
 				70135F671D005CDF007B346D /* ViewController.m */,
 				70135F691D005CDF007B346D /* Main.storyboard */,
-				700FBE8F1D00619800E0DC63 /* ToolKit */,
 				70135F6C1D005CDF007B346D /* Assets.xcassets */,
 				70135F6E1D005CDF007B346D /* LaunchScreen.storyboard */,
 				70135F711D005CDF007B346D /* Info.plist */,
+				70663AD41D00626800659207 /* ToolKit */,
 				70135F601D005CDF007B346D /* Supporting Files */,
 			);
 			path = TooKitExample;
@@ -90,6 +81,15 @@
 				70135F611D005CDF007B346D /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		70663AD41D00626800659207 /* ToolKit */ = {
+			isa = PBXGroup;
+			children = (
+				70663AD51D00626800659207 /* NSDate+TranslateDate.h */,
+				70663AD61D00626800659207 /* NSDate+TranslateDate.m */,
+			);
+			path = ToolKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,8 +164,8 @@
 			files = (
 				70135F681D005CDF007B346D /* ViewController.m in Sources */,
 				70135F651D005CDF007B346D /* AppDelegate.m in Sources */,
-				700FBE8D1D0060AF00E0DC63 /* NSDate+TranslateDate.m in Sources */,
 				70135F621D005CDF007B346D /* main.m in Sources */,
+				70663AD71D00626800659207 /* NSDate+TranslateDate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
