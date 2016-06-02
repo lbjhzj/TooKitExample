@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		700FBE7B1D005E4700E0DC63 /* NSDate+TranslateDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 700FBE781D005E4700E0DC63 /* NSDate+TranslateDate.m */; };
-		700FBE7C1D005E4700E0DC63 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 700FBE791D005E4700E0DC63 /* README.md */; };
+		700FBE861D005F5D00E0DC63 /* NSDate+TranslateDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 700FBE851D005F5D00E0DC63 /* NSDate+TranslateDate.m */; };
 		70135F621D005CDF007B346D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70135F611D005CDF007B346D /* main.m */; };
 		70135F651D005CDF007B346D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70135F641D005CDF007B346D /* AppDelegate.m */; };
 		70135F681D005CDF007B346D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70135F671D005CDF007B346D /* ViewController.m */; };
@@ -18,9 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		700FBE771D005E4700E0DC63 /* NSDate+TranslateDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TranslateDate.h"; sourceTree = "<group>"; };
-		700FBE781D005E4700E0DC63 /* NSDate+TranslateDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TranslateDate.m"; sourceTree = "<group>"; };
-		700FBE791D005E4700E0DC63 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		700FBE841D005F5D00E0DC63 /* NSDate+TranslateDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TranslateDate.h"; sourceTree = "<group>"; };
+		700FBE851D005F5D00E0DC63 /* NSDate+TranslateDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TranslateDate.m"; sourceTree = "<group>"; };
 		70135F5D1D005CDF007B346D /* TooKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TooKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70135F611D005CDF007B346D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		70135F631D005CDF007B346D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -44,16 +42,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		700FBE751D005E4700E0DC63 /* ToolKit */ = {
-			isa = PBXGroup;
-			children = (
-				700FBE771D005E4700E0DC63 /* NSDate+TranslateDate.h */,
-				700FBE781D005E4700E0DC63 /* NSDate+TranslateDate.m */,
-				700FBE791D005E4700E0DC63 /* README.md */,
-			);
-			path = ToolKit;
-			sourceTree = "<group>";
-		};
 		70135F541D005CDF007B346D = {
 			isa = PBXGroup;
 			children = (
@@ -78,10 +66,11 @@
 				70135F661D005CDF007B346D /* ViewController.h */,
 				70135F671D005CDF007B346D /* ViewController.m */,
 				70135F691D005CDF007B346D /* Main.storyboard */,
+				700FBE841D005F5D00E0DC63 /* NSDate+TranslateDate.h */,
+				700FBE851D005F5D00E0DC63 /* NSDate+TranslateDate.m */,
 				70135F6C1D005CDF007B346D /* Assets.xcassets */,
 				70135F6E1D005CDF007B346D /* LaunchScreen.storyboard */,
 				70135F711D005CDF007B346D /* Info.plist */,
-				700FBE751D005E4700E0DC63 /* ToolKit */,
 				70135F601D005CDF007B346D /* Supporting Files */,
 			);
 			path = TooKitExample;
@@ -167,9 +156,8 @@
 			files = (
 				70135F681D005CDF007B346D /* ViewController.m in Sources */,
 				70135F651D005CDF007B346D /* AppDelegate.m in Sources */,
-				700FBE7C1D005E4700E0DC63 /* README.md in Sources */,
+				700FBE861D005F5D00E0DC63 /* NSDate+TranslateDate.m in Sources */,
 				70135F621D005CDF007B346D /* main.m in Sources */,
-				700FBE7B1D005E4700E0DC63 /* NSDate+TranslateDate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
