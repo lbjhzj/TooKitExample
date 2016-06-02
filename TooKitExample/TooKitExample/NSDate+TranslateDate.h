@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-//TEST
+//TE
 /**
  *  日期格式
  */
