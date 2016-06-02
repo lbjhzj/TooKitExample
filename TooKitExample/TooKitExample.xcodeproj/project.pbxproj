@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		700FBE8A1D005FB300E0DC63 /* NSDate+TranslateDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 700FBE891D005FB300E0DC63 /* NSDate+TranslateDate.m */; };
+		700FBE8D1D0060AF00E0DC63 /* NSDate+TranslateDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 700FBE8C1D0060AF00E0DC63 /* NSDate+TranslateDate.m */; };
 		70135F621D005CDF007B346D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70135F611D005CDF007B346D /* main.m */; };
 		70135F651D005CDF007B346D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70135F641D005CDF007B346D /* AppDelegate.m */; };
 		70135F681D005CDF007B346D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70135F671D005CDF007B346D /* ViewController.m */; };
@@ -17,8 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		700FBE881D005FB300E0DC63 /* NSDate+TranslateDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TranslateDate.h"; sourceTree = "<group>"; };
-		700FBE891D005FB300E0DC63 /* NSDate+TranslateDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TranslateDate.m"; sourceTree = "<group>"; };
+		700FBE8B1D0060AF00E0DC63 /* NSDate+TranslateDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TranslateDate.h"; sourceTree = "<group>"; };
+		700FBE8C1D0060AF00E0DC63 /* NSDate+TranslateDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TranslateDate.m"; sourceTree = "<group>"; };
 		70135F5D1D005CDF007B346D /* TooKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TooKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70135F611D005CDF007B346D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		70135F631D005CDF007B346D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -45,8 +45,6 @@
 		700FBE871D005FB300E0DC63 /* ToolKit */ = {
 			isa = PBXGroup;
 			children = (
-				700FBE881D005FB300E0DC63 /* NSDate+TranslateDate.h */,
-				700FBE891D005FB300E0DC63 /* NSDate+TranslateDate.m */,
 			);
 			path = ToolKit;
 			sourceTree = "<group>";
@@ -75,6 +73,8 @@
 				70135F661D005CDF007B346D /* ViewController.h */,
 				70135F671D005CDF007B346D /* ViewController.m */,
 				70135F691D005CDF007B346D /* Main.storyboard */,
+				700FBE8B1D0060AF00E0DC63 /* NSDate+TranslateDate.h */,
+				700FBE8C1D0060AF00E0DC63 /* NSDate+TranslateDate.m */,
 				700FBE871D005FB300E0DC63 /* ToolKit */,
 				70135F6C1D005CDF007B346D /* Assets.xcassets */,
 				70135F6E1D005CDF007B346D /* LaunchScreen.storyboard */,
@@ -164,7 +164,7 @@
 			files = (
 				70135F681D005CDF007B346D /* ViewController.m in Sources */,
 				70135F651D005CDF007B346D /* AppDelegate.m in Sources */,
-				700FBE8A1D005FB300E0DC63 /* NSDate+TranslateDate.m in Sources */,
+				700FBE8D1D0060AF00E0DC63 /* NSDate+TranslateDate.m in Sources */,
 				70135F621D005CDF007B346D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
