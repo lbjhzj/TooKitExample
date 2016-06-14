@@ -76,8 +76,7 @@
     if (!date) {
         for (NSUInteger i = 0; i < [longString length] + 1; i++) {
 
-            if ((date =
-                        [NSDate translateDateStrToNSDate:[longString substringToIndex:i]])) {
+            if ((date = [NSDate translateDateStrToNSDate:[longString substringToIndex:i]])) {
 
                 tempDateStr = [longString substringToIndex:i];
 
@@ -128,6 +127,23 @@
 
     return @[ @([comps year]), @([comps month]), @([comps day]) ];
 }
+
+/**
+ *  检查日期是否合法
+ *
+ *  @param dateStr 待检查的日期字符串
+ *
+ *  @return 返回真或假
+ */
++ (BOOL)checkOutDateIsAvailable:(NSString *)dateStr
+{
+    dateType dateType = [self checkOutDateTypeBy:dateStr];
+    
+    NSDateFormatter *formatter = [self checkOutTheDateType:dateType];
+    
+    return ([formatter dateFromString:dateStr] != nil) ? YES:NO;
+}
+
 
 /**
  *  通过日期字符串判断是什么日期格式
@@ -189,7 +205,7 @@
  */
 + (NSDateFormatter*)makeFormatterWithStyle:(NSString*)style
 {
-
+    
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:style];
 
