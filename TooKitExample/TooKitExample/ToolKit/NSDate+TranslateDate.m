@@ -10,127 +10,123 @@
 
 @implementation NSDate (TranslateDate)
 
-+ (NSString *)translateDateToString:(NSDate *)date option:(dateType)dateType {
++ (NSString*)translateDateToString:(NSDate*)date option:(dateType)dateType
+{
+    NSString* dateStr = [[self checkOutTheDateType:dateType] stringFromDate:date];
 
-  NSString *dateStr = [[self checkOutTheDateType:dateType] stringFromDate:date];
-
-  return dateStr;
+    return dateStr;
 }
 
-+ (NSDate *)translateDateStrToNSDate:(NSString *)dateStr
-                            withType:(dateType)dateType {
++ (NSDate*)translateDateStrToNSDate:(NSString*)dateStr
+{
 
-  NSDate *date = [[self checkOutTheDateType:dateType] dateFromString:dateStr];
+    dateType dateType= [self checkOutDateTypeBy:dateStr];
+    
+    NSDate* date = [[self checkOutTheDateType:dateType] dateFromString:dateStr];
 
-  return date;
+    return date;
 }
 
-+ (NSString *)translateDateStr:(NSString *)dateStr
-                  WithDateType:(dateType)origionDateType
-                     ToTheType:(dateType)idealType {
++ (NSString*)translateDateStr:(NSString *)dateStr withWantedType:(dateType)idealType
+{
 
-  NSDateFormatter *formatter = [self checkOutTheDateType:idealType];
+    NSDateFormatter* formatter = [self checkOutTheDateType:idealType];
+    
+    NSDate* date = [self translateDateStrToNSDate:dateStr];
 
-  NSDate *date =
-      [self translateDateStrToNSDate:dateStr withType:origionDateType];
-
-  return [formatter stringFromDate:date];
+    return [formatter stringFromDate:date];
 }
 
-+ (NSString *)returnTheFormatterYouWantWithDateStr:(NSString *)dateStr
-                                        ByDateType:(dateType)dateType
-                                          HaveZero:(BOOL)flag {
++ (NSString*)returnTheFormatterYouWantWithDateStr:(NSString*)dateStr HaveZero:(BOOL)flag
+{
 
-  NSString *tempDateStr =
-      [self saveYourDateStrFromALongString:dateStr WithDateType:dateType];
+    NSString* tempDateStr =
+        [self saveYourDateStrFromALongString:dateStr];
 
-  NSDate *date = [self translateDateStrToNSDate:tempDateStr withType:dateType];
+    dateType dateType = [self checkOutDateTypeBy:tempDateStr];
+    
+    NSDate* date = [self translateDateStrToNSDate:tempDateStr];
 
-  NSArray *dateArry =
-      [self saveTheYearMonthDayFromDateStr:dateStr WithDateType:dateType];
+    NSArray* dateArry = [self saveTheYearMonthDayFromDateStr:dateStr];
 
-  if (flag) {
-    return [NSString
-        stringWithFormat:@"%@%@",
-                         [NSDate translateDateToString:date option:dateType],
-                         [dateStr
-                             stringByReplacingOccurrencesOfString:tempDateStr
-                                                       withString:@""]];
-  } else {
-    return [NSString
-        stringWithFormat:@"%@年%@月%@日%@", dateArry[0], dateArry[1],
-                         dateArry[2],
-                         [dateStr
-                             stringByReplacingOccurrencesOfString:tempDateStr
-                                                       withString:@""]];
-  }
+    if (flag) {
+        return [NSString
+            stringWithFormat:@"%@%@",
+            [NSDate translateDateToString:date option:dateType],
+            [dateStr
+                                 stringByReplacingOccurrencesOfString:tempDateStr
+                                                           withString:@""]];
+    }
+    else {
+        return [NSString
+            stringWithFormat:@"%@年%@月%@日%@", dateArry[0], dateArry[1],
+            dateArry[2],
+            [dateStr
+                                 stringByReplacingOccurrencesOfString:tempDateStr
+                                                           withString:@""]];
+    }
 }
 
-+ (NSString *)saveYourDateStrFromALongString:(NSString *)longString
-                                WithDateType:(dateType)dateType {
++ (NSString*)saveYourDateStrFromALongString:(NSString*)longString
+{
 
-  NSDate *date = [NSDate translateDateStrToNSDate:longString withType:dateType];
-  NSString *tempDateStr = longString;
-  //    检查是否只含有日期信息
-  if (!date) {
-    for (NSUInteger i = 0; i < [longString length] + 1; i++) {
+    NSDate* date = [NSDate translateDateStrToNSDate:longString];
+    NSString* tempDateStr = longString;
+    //    检查是否只含有日期信息
+    if (!date) {
+        for (NSUInteger i = 0; i < [longString length] + 1; i++) {
 
-      if ((date =
-               [NSDate translateDateStrToNSDate:[longString substringToIndex:i]
-                                       withType:dateType])) {
+            if ((date =
+                        [NSDate translateDateStrToNSDate:[longString substringToIndex:i]])) {
 
-        tempDateStr = [longString substringToIndex:i];
+                tempDateStr = [longString substringToIndex:i];
 
-        NSString *prefixStr = [[longString
-            stringByReplacingOccurrencesOfString:tempDateStr
-                                      withString:@""] substringToIndex:1];
-        NSScanner *scan = [NSScanner scannerWithString:prefixStr];
-        int val;
-        /**
+                NSString* prefixStr = [[longString
+                    stringByReplacingOccurrencesOfString:tempDateStr
+                                              withString:@""] substringToIndex:1];
+                NSScanner* scan = [NSScanner scannerWithString:prefixStr];
+                int val;
+                /**
          *  判断是否还有日期被漏掉，如：10日的0被漏掉
          */
-        if (![scan scanInt:&val] && ![scan isAtEnd]) {
-          /**
+                if (![scan scanInt:&val] && ![scan isAtEnd]) {
+                    /**
            *  如果为年月日类型，需要将末尾的‘日’加上，不然会出现：'''2016年06月01日日‘’‘
            */
-          if (dateType == DateWithChinese) {
-            tempDateStr = [longString substringToIndex:(i + 1)];
-            return tempDateStr;
-          }
-          break;
+                    dateType dateType = [self checkOutDateTypeBy:tempDateStr];
+                    if (dateType == DateWithChinese) {
+                        tempDateStr = [longString substringToIndex:(i + 1)];
+                        return tempDateStr;
+                    }
+                    break;
+                }
+            }
+            if (i == [longString length] + 1) {
+                return nil;
+            }
         }
-      }
-      if (i == [longString length] + 1) {
-        return nil;
-      }
     }
-  }
-  return tempDateStr;
+    return tempDateStr;
 }
 
-+ (NSArray *)saveTheYearMonthDayFromDateStr:(NSString *)dateStr
-                               WithDateType:(dateType)dateType{
-//判断日期格式是否改变
-  dateType = [self checkOutDateTypeBy:dateStr];
-    
-  NSString *tempDateStr =
-      [self saveYourDateStrFromALongString:dateStr WithDateType:dateType];
++ (NSArray*)saveTheYearMonthDayFromDateStr:(NSString*)dateStr
+{
 
-  NSDate *date = [self translateDateStrToNSDate:tempDateStr withType:dateType];
-    
-  NSCalendar *calendar =
-      [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSString* tempDateStr =
+        [self saveYourDateStrFromALongString:dateStr];
 
-  NSDateComponents *comps = [[NSDateComponents alloc] init];
+    NSDate* date = [self translateDateStrToNSDate:tempDateStr];
 
-  NSInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |
-                        NSDayCalendarUnit | NSWeekdayCalendarUnit |
-                        NSHourCalendarUnit | NSMinuteCalendarUnit |
-                        NSSecondCalendarUnit;
+    NSCalendar* calendar =
+        [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
 
-  comps = [calendar components:unitFlags fromDate:date];
+    NSDateComponents* comps = [[NSDateComponents alloc] init];
 
-  return @[ @([comps year]), @([comps month]), @([comps day]) ];
+    NSInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+
+    comps = [calendar components:unitFlags fromDate:date];
+
+    return @[ @([comps year]), @([comps month]), @([comps day]) ];
 }
 
 /**
@@ -140,14 +136,15 @@
  *
  *  @return 日期格式
  */
-+ (dateType)checkOutDateTypeBy:(NSString *)dateStr{
++ (dateType)checkOutDateTypeBy:(NSString*)dateStr
+{
     if ([dateStr containsString:@"年"]) {
         return DateWithChinese;
     }
-    else if ([dateStr containsString:@"-"]){
+    else if ([dateStr containsString:@"-"]) {
         return DateWithHorizontalLine;
     }
-    else if ([dateStr containsString:@"/"]){
+    else if ([dateStr containsString:@"/"]) {
         return DateWithSlashLine;
     }
     return 666;
@@ -160,26 +157,27 @@
  *
  *  @return NSDateFormatter
  */
-+ (NSDateFormatter *)checkOutTheDateType:(dateType)dateType {
-  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-  switch (dateType) {
-  case DateWithSlashLine:
-    [formatter setDateFormat:@"yyyy/MM/dd"];
-    break;
++ (NSDateFormatter*)checkOutTheDateType:(dateType)dateType
+{
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    switch (dateType) {
+    case DateWithSlashLine:
+        [formatter setDateFormat:@"yyyy/MM/dd"];
+        break;
 
-  case DateWithHorizontalLine:
-    [formatter setDateFormat:@"yyyy-MM-dd"];
-    break;
+    case DateWithHorizontalLine:
+        [formatter setDateFormat:@"yyyy-MM-dd"];
+        break;
 
-  case DateWithChinese:
-    [formatter setDateFormat:@"yyyy年MM月dd日"];
-    break;
+    case DateWithChinese:
+        [formatter setDateFormat:@"yyyy年MM月dd日"];
+        break;
 
-  default:
-    return nil;
-    break;
-  }
-  return formatter;
+    default:
+        return nil;
+        break;
+    }
+    return formatter;
 }
 
 /**
@@ -189,11 +187,12 @@
  *
  *  @return 自定义的NSDateFormatter类型的formatter
  */
-+ (NSDateFormatter *)makeFormatterWithStyle:(NSString *)style{
-    
-    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
++ (NSDateFormatter*)makeFormatterWithStyle:(NSString*)style
+{
+
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:style];
-    
+
     return formatter;
 }
 
