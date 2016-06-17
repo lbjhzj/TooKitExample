@@ -53,33 +53,42 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXC-kq-WQF">
-                                <rect key="frame" x="270" y="462" width="60" height="30"/>
+                                <rect key="frame" x="270" y="492" width="60" height="30"/>
                                 <state key="normal" title="还原日期"/>
                                 <connections>
                                     <action selector="btn5Avtion:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tV7-Il-9KI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIk-BS-cj7">
-                                <rect key="frame" x="240" y="392" width="120" height="30"/>
+                                <rect key="frame" x="240" y="422" width="120" height="30"/>
                                 <state key="normal" title="分别提取出年月日"/>
                                 <connections>
                                     <action selector="btn4Avtion:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cfA-kP-RBm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9K2-PI-WPZ">
-                                <rect key="frame" x="199" y="532" width="203" height="30"/>
+                                <rect key="frame" x="199" y="562" width="203" height="30"/>
                                 <state key="normal" title="将日期从第二个Label提取出来"/>
                                 <connections>
                                     <action selector="btn6Avtion:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AT5-gg-kjl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUz-97-YXI">
+                                <rect key="frame" x="231" y="372" width="138" height="30"/>
+                                <state key="normal" title="转为美国style类型的"/>
+                                <connections>
+                                    <action selector="btn7Action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="snT-cv-O1q"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9K2-PI-WPZ" firstAttribute="top" secondItem="vXC-kq-WQF" secondAttribute="bottom" constant="40" id="3I8-vl-Gba"/>
+                            <constraint firstItem="dIk-BS-cj7" firstAttribute="top" secondItem="eUz-97-YXI" secondAttribute="bottom" constant="20" id="4DI-6S-sa2"/>
                             <constraint firstItem="3Zr-mz-Xli" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BD1-ox-Lcz"/>
                             <constraint firstItem="6LB-9U-xTs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BZX-C1-4HE"/>
                             <constraint firstItem="6LB-9U-xTs" firstAttribute="top" secondItem="xWc-D2-9p5" secondAttribute="bottom" constant="40" id="GdG-A9-pzu"/>
+                            <constraint firstItem="eUz-97-YXI" firstAttribute="top" secondItem="54C-Fn-3aD" secondAttribute="bottom" constant="20" id="KNd-NH-nBz"/>
                             <constraint firstItem="vXC-kq-WQF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qrj-Dm-uvV"/>
                             <constraint firstItem="3Zr-mz-Xli" firstAttribute="top" secondItem="tC6-MB-Ttx" secondAttribute="bottom" constant="40" id="Tj6-TG-v4c"/>
                             <constraint firstItem="tC6-MB-Ttx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="XHN-8b-Fkj"/>
@@ -87,12 +96,18 @@
                             <constraint firstItem="dIk-BS-cj7" firstAttribute="top" secondItem="54C-Fn-3aD" secondAttribute="bottom" constant="40" id="ZZD-CJ-rIh"/>
                             <constraint firstItem="9K2-PI-WPZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cTG-rR-hRc"/>
                             <constraint firstItem="54C-Fn-3aD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fdX-4c-tV7"/>
+                            <constraint firstItem="eUz-97-YXI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="h1v-ON-Qfs"/>
                             <constraint firstItem="xWc-D2-9p5" firstAttribute="top" secondItem="3Zr-mz-Xli" secondAttribute="bottom" constant="40" id="lim-51-bVj"/>
                             <constraint firstItem="dIk-BS-cj7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="npB-LR-Hbv"/>
                             <constraint firstItem="vXC-kq-WQF" firstAttribute="top" secondItem="dIk-BS-cj7" secondAttribute="bottom" constant="40" id="pF6-Up-r3f"/>
                             <constraint firstItem="xWc-D2-9p5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="s1A-Wy-LHF"/>
                             <constraint firstItem="54C-Fn-3aD" firstAttribute="top" secondItem="6LB-9U-xTs" secondAttribute="bottom" constant="40" id="ysk-7f-uRt"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ZZD-CJ-rIh"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="btn1" destination="xWc-D2-9p5" id="Au4-2Z-ri6"/>
@@ -101,6 +116,7 @@
                         <outlet property="btn4" destination="dIk-BS-cj7" id="2a8-Nr-xKP"/>
                         <outlet property="btn5" destination="vXC-kq-WQF" id="Zmi-A3-jOA"/>
                         <outlet property="btn6" destination="9K2-PI-WPZ" id="KTQ-kd-Gcq"/>
+                        <outlet property="btn7" destination="eUz-97-YXI" id="h9W-5W-US9"/>
                         <outlet property="origionDateLabel" destination="3Zr-mz-Xli" id="aM3-pp-1GR"/>
                         <outlet property="outputLabel" destination="tC6-MB-Ttx" id="iYY-kU-XRe"/>
                     </connections>

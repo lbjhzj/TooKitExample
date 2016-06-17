@@ -40,8 +40,7 @@
 + (NSString*)returnTheFormatterYouWantWithDateStr:(NSString*)dateStr HaveZero:(BOOL)flag
 {
 
-    NSString* tempDateStr =
-        [self saveYourDateStrFromALongString:dateStr];
+    NSString* tempDateStr = [self saveYourDateStrFromALongString:dateStr];
 
     dateType dateType = [self checkOutDateTypeBy:tempDateStr];
     
@@ -49,21 +48,19 @@
 
     NSArray* dateArry = [self saveTheYearMonthDayFromDateStr:dateStr];
 
-    if (flag) {
+    if (flag)
+    {
         return [NSString
             stringWithFormat:@"%@%@",
             [NSDate translateDateToString:date option:dateType],
-            [dateStr
-                                 stringByReplacingOccurrencesOfString:tempDateStr
+            [dateStr stringByReplacingOccurrencesOfString:tempDateStr
                                                            withString:@""]];
     }
-    else {
+    else
+    {
         return [NSString
             stringWithFormat:@"%@年%@月%@日%@", dateArry[0], dateArry[1],
-            dateArry[2],
-            [dateStr
-                                 stringByReplacingOccurrencesOfString:tempDateStr
-                                                           withString:@""]];
+            dateArry[2], [dateStr stringByReplacingOccurrencesOfString:tempDateStr withString:@""]];
     }
 }
 
@@ -73,10 +70,13 @@
     NSDate* date = [NSDate translateDateStrToNSDate:longString];
     NSString* tempDateStr = longString;
     //    检查是否只含有日期信息
-    if (!date) {
-        for (NSUInteger i = 0; i < [longString length] + 1; i++) {
+    if (!date)
+    {
+        for (NSUInteger i = 0; i < [longString length] + 1; i++)
+        {
 
-            if ((date = [NSDate translateDateStrToNSDate:[longString substringToIndex:i]])) {
+            if ((date = [NSDate translateDateStrToNSDate:[longString substringToIndex:i]]))
+            {
 
                 tempDateStr = [longString substringToIndex:i];
 
@@ -88,19 +88,23 @@
                 /**
          *  判断是否还有日期被漏掉，如：10日的0被漏掉
          */
-                if (![scan scanInt:&val] && ![scan isAtEnd]) {
+                if (![scan scanInt:&val] && ![scan isAtEnd])
+                {
                     /**
            *  如果为年月日类型，需要将末尾的‘日’加上，不然会出现：'''2016年06月01日日‘’‘
            */
                     dateType dateType = [self checkOutDateTypeBy:tempDateStr];
-                    if (dateType == DateWithChinese) {
+                    if (dateType == DateWithChinese)
+                    {
                         tempDateStr = [longString substringToIndex:(i + 1)];
                         return tempDateStr;
                     }
                     break;
                 }
             }
-            if (i == [longString length] + 1) {
+            if (i == [longString length])
+            {
+                
                 return nil;
             }
         }
@@ -111,6 +115,11 @@
 + (NSArray*)saveTheYearMonthDayFromDateStr:(NSString*)dateStr
 {
 
+    if (![self checkOutDateIsAvailable:dateStr])
+    {
+        return nil;
+    }
+    
     NSString* tempDateStr =
         [self saveYourDateStrFromALongString:dateStr];
 
@@ -154,13 +163,21 @@
  */
 + (dateType)checkOutDateTypeBy:(NSString*)dateStr
 {
-    if ([dateStr containsString:@"年"]) {
+    if ([dateStr containsString:@"年"])
+    {
         return DateWithChinese;
     }
-    else if ([dateStr containsString:@"-"]) {
+    else if ([dateStr containsString:@"-"])
+    {
         return DateWithHorizontalLine;
     }
-    else if ([dateStr containsString:@"/"]) {
+    else if ([dateStr containsString:@"/"])
+    {
+        NSDateFormatter *formatter=[self checkOutTheDateType:DateWithAmericanStyle];
+        if ([formatter dateFromString:dateStr])
+        {
+            return DateWithAmericanStyle;
+        }
         return DateWithSlashLine;
     }
     return 666;
@@ -176,7 +193,8 @@
 + (NSDateFormatter*)checkOutTheDateType:(dateType)dateType
 {
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-    switch (dateType) {
+    switch (dateType)
+    {
     case DateWithSlashLine:
         [formatter setDateFormat:@"yyyy/MM/dd"];
         break;
@@ -189,6 +207,10 @@
         [formatter setDateFormat:@"yyyy年MM月dd日"];
         break;
 
+    case DateWithAmericanStyle:
+        [formatter setDateFormat:@"MM/dd/yyyy"];
+        break;
+            
     default:
         return nil;
         break;

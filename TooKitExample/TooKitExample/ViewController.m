@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btn4;
 @property (weak, nonatomic) IBOutlet UIButton *btn5;
 @property (weak, nonatomic) IBOutlet UIButton *btn6;
+@property (weak, nonatomic) IBOutlet UIButton *btn7;
 
 @property (weak, nonatomic) IBOutlet UILabel *outputLabel;
 @property (weak, nonatomic) IBOutlet UILabel *origionDateLabel;
@@ -29,17 +30,17 @@
     [super viewDidLoad];
 
     
-    
 }
 
 - (IBAction)btn1Avtion:(UIButton *)sender
 {
     self.outputLabel.text =[NSDate returnTheFormatterYouWantWithDateStr:self.outputLabel.text HaveZero:YES];
+    self.origionDateLabel.text = [NSDate returnTheFormatterYouWantWithDateStr:self.origionDateLabel.text HaveZero:YES];
 }
 
 - (IBAction)btn2Avtion:(UIButton *)sender
 {
-    self.outputLabel.text =[NSDate translateDateStr:self.outputLabel.text withWantedType:DateWithHorizontalLine];
+    self.outputLabel.text = [NSDate translateDateStr:self.outputLabel.text withWantedType:DateWithHorizontalLine];
 }
 
 - (IBAction)btn3Avtion:(UIButton *)sender
@@ -66,12 +67,19 @@
     }
     
     
-    self.origionDateLabel.text = @"2016年6月10日hah33ha";
+    self.origionDateLabel.text = @"6/1/2016hah33ha";
 }
 
-- (IBAction)btn6Avtion:(UIButton *)sender {
+- (IBAction)btn6Avtion:(UIButton *)sender
+{
     
     self.origionDateLabel.text = [NSDate saveYourDateStrFromALongString:self.origionDateLabel.text];
+}
+
+- (IBAction)btn7Action:(UIButton *)sender
+{
+    self.outputLabel.text = [NSDate translateDateStr:self.outputLabel.text withWantedType:DateWithAmericanStyle];
+    
 }
 
 

@@ -25,6 +25,11 @@ typedef NS_ENUM(NSInteger, dateType) {
    *  ex:2016年06月05日
    */
     DateWithChinese = 2,
+    
+    /**
+     *  ex:06/05/2016
+     */
+    DateWithAmericanStyle = 3,
 };
 @interface NSDate (TranslateDate)
 
