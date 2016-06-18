@@ -8,28 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-//TEST
+// TEST
 /**
  *  日期格式
  */
 typedef NS_ENUM(NSInteger, dateType) {
-    /**
-   *  ex:2016-06-05
-   */
-    DateWithHorizontalLine = 0,
-    /**
-   *  ex:2016/06/05
-   */
-    DateWithSlashLine = 1,
-    /**
-   *  ex:2016年06月05日
-   */
-    DateWithChinese = 2,
-    
-    /**
-     *  ex:06/05/2016
-     */
-    DateWithAmericanStyle = 3,
+  DateWithHorizontalLine, // ex:2016-06-05
+  DateWithSlashLine,      // ex:2016/06/05
+  DateWithChineseStyle,   // ex:2016年06月05日
+  DateWithAmericanStyle   // ex:06/05/2016
 };
 @interface NSDate (TranslateDate)
 
@@ -42,7 +29,7 @@ typedef NS_ENUM(NSInteger, dateType) {
  *  @return 返回字符串类型的日期
  */
 
-+ (NSString*)translateDateToString:(NSDate*)date option:(dateType)dateType;
++ (NSString *)translateDateToString:(NSDate *)date option:(dateType)dateType;
 
 /**
  *  将日期字符串转换为NSDate类型（只能带有日期信息，不然会返回空）
@@ -53,7 +40,7 @@ typedef NS_ENUM(NSInteger, dateType) {
  *  @return 返回字符串类型的日期
  */
 
-+ (NSDate*)translateDateStrToNSDate:(NSString*)dateStr;
++ (NSDate *)translateDateStrToNSDate:(NSString *)dateStr;
 
 /**
  *  将日期字符串转换为想要的日期格式（exp:将2016-06-01转换为2016/06/01）
@@ -63,8 +50,8 @@ typedef NS_ENUM(NSInteger, dateType) {
  *
  *  @return 转换后的日期字符串---the formatter you want
  */
-+ (NSString*)translateDateStr:(NSString*)dateStr
-               withWantedType:(dateType)idealType;
++ (NSString *)translateDateStr:(NSString *)dateStr
+                withWantedType:(dateType)idealType;
 
 /**
  *
@@ -77,7 +64,8 @@ typedef NS_ENUM(NSInteger, dateType) {
  *
  *  @return 替换为你想要的形式的NSString类型后返回
  */
-+ (NSString*)returnTheFormatterYouWantWithDateStr:(NSString*)dateStr HaveZero:(BOOL)flag;
++ (NSString *)returnTheFormatterYouWantWithDateStr:(NSString *)dateStr
+                                          HaveZero:(BOOL)flag;
 
 /**
  *  将你的日期字符串从含有这个日期的长字符串中拯救出来。
@@ -87,7 +75,7 @@ typedef NS_ENUM(NSInteger, dateType) {
  *
  *  @return 只含有日期的字符串
  */
-+ (NSString*)saveYourDateStrFromALongString:(NSString*)longString;
++ (NSString *)saveYourDateStrFromALongString:(NSString *)longString;
 
 /**
  *  将年月日分别以NSNumber的形式装入NSArray从你的日期字符串取出
@@ -97,7 +85,7 @@ typedef NS_ENUM(NSInteger, dateType) {
  *
  *  @return 按年、月、日的顺序存储的数组
  */
-+ (NSArray*)saveTheYearMonthDayFromDateStr:(NSString*)dateStr;
++ (NSArray *)saveTheYearMonthDayFromDateStr:(NSString *)dateStr;
 
 /**
  *  检查日期是否合法
@@ -106,6 +94,6 @@ typedef NS_ENUM(NSInteger, dateType) {
  *
  *  @return 返回真或假
  */
-+ (BOOL)checkOutDateIsAvailable:(NSString*)dateStr;
++ (BOOL)checkOutDateIsAvailable:(NSString *)dateStr;
 
 @end

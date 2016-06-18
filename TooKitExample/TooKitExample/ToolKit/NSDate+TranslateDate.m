@@ -20,18 +20,18 @@
 + (NSDate*)translateDateStrToNSDate:(NSString*)dateStr
 {
 
-    dateType dateType= [self checkOutDateTypeBy:dateStr];
-    
+    dateType dateType = [self checkOutDateTypeBy:dateStr];
+
     NSDate* date = [[self checkOutTheDateType:dateType] dateFromString:dateStr];
 
     return date;
 }
 
-+ (NSString*)translateDateStr:(NSString *)dateStr withWantedType:(dateType)idealType
++ (NSString*)translateDateStr:(NSString*)dateStr withWantedType:(dateType)idealType
 {
 
     NSDateFormatter* formatter = [self checkOutTheDateType:idealType];
-    
+
     NSDate* date = [self translateDateStrToNSDate:dateStr];
 
     return [formatter stringFromDate:date];
@@ -43,7 +43,7 @@
     NSString* tempDateStr = [self saveYourDateStrFromALongString:dateStr];
 
     dateType dateType = [self checkOutDateTypeBy:tempDateStr];
-    
+
     NSDate* date = [self translateDateStrToNSDate:tempDateStr];
 
     NSArray* dateArry = [self saveTheYearMonthDayFromDateStr:dateStr];
@@ -94,7 +94,7 @@
            *  如果为年月日类型，需要将末尾的‘日’加上，不然会出现：'''2016年06月01日日‘’‘
            */
                     dateType dateType = [self checkOutDateTypeBy:tempDateStr];
-                    if (dateType == DateWithChinese)
+                    if (dateType == DateWithChineseStyle)
                     {
                         tempDateStr = [longString substringToIndex:(i + 1)];
                         return tempDateStr;
@@ -104,7 +104,7 @@
             }
             if (i == [longString length])
             {
-                
+
                 return nil;
             }
         }
@@ -119,18 +119,18 @@
     {
         return nil;
     }
-    
+
     NSString* tempDateStr =
         [self saveYourDateStrFromALongString:dateStr];
 
     NSDate* date = [self translateDateStrToNSDate:tempDateStr];
 
     NSCalendar* calendar =
-        [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
 
     NSDateComponents* comps = [[NSDateComponents alloc] init];
 
-    NSInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+    NSInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
 
     comps = [calendar components:unitFlags fromDate:date];
 
@@ -144,15 +144,14 @@
  *
  *  @return 返回真或假
  */
-+ (BOOL)checkOutDateIsAvailable:(NSString *)dateStr
++ (BOOL)checkOutDateIsAvailable:(NSString*)dateStr
 {
     dateType dateType = [self checkOutDateTypeBy:dateStr];
-    
-    NSDateFormatter *formatter = [self checkOutTheDateType:dateType];
-    
-    return ([formatter dateFromString:dateStr] != nil) ? YES:NO;
-}
 
+    NSDateFormatter* formatter = [self checkOutTheDateType:dateType];
+
+    return ([formatter dateFromString:dateStr] != nil) ? YES : NO;
+}
 
 /**
  *  通过日期字符串判断是什么日期格式
@@ -165,7 +164,7 @@
 {
     if ([dateStr containsString:@"年"])
     {
-        return DateWithChinese;
+        return DateWithChineseStyle;
     }
     else if ([dateStr containsString:@"-"])
     {
@@ -173,7 +172,7 @@
     }
     else if ([dateStr containsString:@"/"])
     {
-        NSDateFormatter *formatter=[self checkOutTheDateType:DateWithAmericanStyle];
+        NSDateFormatter* formatter = [self checkOutTheDateType:DateWithAmericanStyle];
         if ([formatter dateFromString:dateStr])
         {
             return DateWithAmericanStyle;
@@ -203,14 +202,14 @@
         [formatter setDateFormat:@"yyyy-MM-dd"];
         break;
 
-    case DateWithChinese:
+    case DateWithChineseStyle:
         [formatter setDateFormat:@"yyyy年MM月dd日"];
         break;
 
     case DateWithAmericanStyle:
         [formatter setDateFormat:@"MM/dd/yyyy"];
         break;
-            
+
     default:
         return nil;
         break;
@@ -227,7 +226,7 @@
  */
 + (NSDateFormatter*)makeFormatterWithStyle:(NSString*)style
 {
-    
+
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:style];
 

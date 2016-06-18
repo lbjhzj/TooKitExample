@@ -58,7 +58,7 @@
 {
     if ([NSDate checkOutDateIsAvailable:self.outputLabel.text])
     {
-        self.outputLabel.text = [NSDate translateDateStr:self.outputLabel.text withWantedType:DateWithChinese];
+        self.outputLabel.text = [NSDate translateDateStr:self.outputLabel.text withWantedType:DateWithChineseStyle];
         self.outputLabel.text = [NSDate returnTheFormatterYouWantWithDateStr:self.outputLabel.text HaveZero:NO];
     }
     else
