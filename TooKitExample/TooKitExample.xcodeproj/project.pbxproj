@@ -13,6 +13,7 @@
 		70135F6B1D005CDF007B346D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70135F691D005CDF007B346D /* Main.storyboard */; };
 		70135F6D1D005CDF007B346D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70135F6C1D005CDF007B346D /* Assets.xcassets */; };
 		70135F701D005CDF007B346D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70135F6E1D005CDF007B346D /* LaunchScreen.storyboard */; };
+		702334181D14E9BA00619DB7 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 702334171D14E9BA00619DB7 /* README.md */; };
 		70663AD71D00626800659207 /* NSDate+TranslateDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70663AD61D00626800659207 /* NSDate+TranslateDate.m */; };
 /* End PBXBuildFile section */
 
@@ -27,8 +28,10 @@
 		70135F6C1D005CDF007B346D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70135F6F1D005CDF007B346D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		70135F711D005CDF007B346D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		702334171D14E9BA00619DB7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		70663AD51D00626800659207 /* NSDate+TranslateDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TranslateDate.h"; sourceTree = "<group>"; };
 		70663AD61D00626800659207 /* NSDate+TranslateDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TranslateDate.m"; sourceTree = "<group>"; };
+		70663ADA1D00632C00659207 /* HYToolKitHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYToolKitHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +91,8 @@
 			children = (
 				70663AD51D00626800659207 /* NSDate+TranslateDate.h */,
 				70663AD61D00626800659207 /* NSDate+TranslateDate.m */,
+				70663ADA1D00632C00659207 /* HYToolKitHeader.h */,
+				702334171D14E9BA00619DB7 /* README.md */,
 			);
 			path = ToolKit;
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 			files = (
 				70135F681D005CDF007B346D /* ViewController.m in Sources */,
 				70135F651D005CDF007B346D /* AppDelegate.m in Sources */,
+				702334181D14E9BA00619DB7 /* README.md in Sources */,
 				70135F621D005CDF007B346D /* main.m in Sources */,
 				70663AD71D00626800659207 /* NSDate+TranslateDate.m in Sources */,
 			);
