@@ -9,6 +9,8 @@
 #ifndef TooKitHeader_pch
 #define TooKitHeader_pch
 
+#define screenH [UIScreen mainScreen].bounds.size.height
+#define screenW [UIScreen mainScreen].bounds.size.width
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
@@ -20,6 +22,6 @@
 
 #import "NCColor.h"
 
-#import <CoreGraphics/CGGeometry.h>
+#import "UIView+frame.h"
 
 #endif /* TooKitHeader_pch */

@@ -7,7 +7,6 @@
 //
 
 #import "PanButton.h"
-#import <CoreGraphics/CGGeometry.h>
 
 @interface PanButton()
 
@@ -97,7 +96,7 @@
         }
         
         //    竖屏右下角
-        if (newCenter.x+self.frame.size.width*0.5 >= screenW && newCenter.y+self.frame.size.height*0.5 >= [self superview].height)
+        if (newCenter.x+self.width*0.5 >= screenW && newCenter.y+self.height*0.5 >= [self superview].height)
         {
             view.center = CGPointMake(screenW-self.frame.size.width*0.5, [self superview].height-self.frame.size.height*0.5);
             [gestureRecognizer setTranslation:CGPointZero inView:self];
@@ -110,7 +109,7 @@
     else
     {
         //    横屏左下角
-        if (newCenter.x-self.frame.size.width*0.5 <= 0 && newCenter.y+self.frame.size.height*0.5 >= screenW)
+        if (newCenter.x-self.width*0.5 <= 0 && newCenter.y+self.frame.size.height*0.5 >= screenW)
         {
             view.center = CGPointMake(self.frame.size.width*0.5, screenW-self.frame.size.height*0.5);
             [gestureRecognizer setTranslation:CGPointZero inView:self];

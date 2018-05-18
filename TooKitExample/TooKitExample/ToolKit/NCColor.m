@@ -7,7 +7,6 @@
 //
 
 #import "NCColor.h"
-#import <UIKit/UIKit.h>
 
 @implementation NCColor
 
