@@ -8,15 +8,23 @@
 
 #import <Foundation/Foundation.h>
 
-// TEST
+//TEST
 /**
  *  日期格式
  */
 typedef NS_ENUM(NSInteger, dateType) {
-  DateWithHorizontalLine, // ex:2016-06-05
-  DateWithSlashLine,      // ex:2016/06/05
-  DateWithChineseStyle,   // ex:2016年06月05日
-  DateWithAmericanStyle   // ex:06/05/2016
+    /**
+     *  ex:2016-06-05
+     */
+    DateWithHorizontalLine = 0,
+    /**
+     *  ex:2016/06/05
+     */
+    DateWithSlashLine = 1,
+    /**
+     *  ex:2016年06月05日
+     */
+    DateWithChinese = 2,
 };
 @interface NSDate (TranslateDate)
 
@@ -56,7 +64,7 @@ typedef NS_ENUM(NSInteger, dateType) {
 /**
  *
  检查传入的字符串的月份和日期小于10的时候是否有0，并将传入的字符串中日期的部分替换为你想要的形式后返回。
-    注意：目前只支持从前向后检查日期格式，也就是要替换的日期在字符串最前面，并且年月日要连贯（exp:2016-06-01hahahah替换为2016-6-1hahahah），不支持要替换的日期在字符串中间或末尾（exp:hahaha2016-06-01或者hahaha2016-06-01hahaha）
+ 注意：目前只支持从前向后检查日期格式，也就是要替换的日期在字符串最前面，并且年月日要连贯（exp:2016-06-01hahahah替换为2016-6-1hahahah），不支持要替换的日期在字符串中间或末尾（exp:hahaha2016-06-01或者hahaha2016-06-01hahaha）
  *
  *  @param dateStr 传入日期字符串
  *  @param datetype想要的日期格式
@@ -64,12 +72,11 @@ typedef NS_ENUM(NSInteger, dateType) {
  *
  *  @return 替换为你想要的形式的NSString类型后返回
  */
-+ (NSString *)returnTheFormatterYouWantWithDateStr:(NSString *)dateStr
-                                          HaveZero:(BOOL)flag;
++ (NSString *)returnTheFormatterYouWantWithDateStr:(NSString *)dateStr HaveZero:(BOOL)flag;
 
 /**
  *  将你的日期字符串从含有这个日期的长字符串中拯救出来。
-    注意：目前只支持从前向后检查日期格式，也就是要截取的日期在字符串最前面，并且年月日要连贯（exp:2016-06-01hahahah替换为2016-6-1hahahah），不支持要截取的日期在字符串中间或末尾（exp:hahaha2016-06-01或者hahaha2016-06-01hahaha）
+ 注意：目前只支持从前向后检查日期格式，也就是要截取的日期在字符串最前面，并且年月日要连贯（exp:2016-06-01hahahah替换为2016-6-1hahahah），不支持要截取的日期在字符串中间或末尾（exp:hahaha2016-06-01或者hahaha2016-06-01hahaha）
  *
  *  @param longString 待截取的长字符串
  *
@@ -85,15 +92,6 @@ typedef NS_ENUM(NSInteger, dateType) {
  *
  *  @return 按年、月、日的顺序存储的数组
  */
-+ (NSArray *)saveTheYearMonthDayFromDateStr:(NSString *)dateStr;
-
-/**
- *  检查日期是否合法
- *
- *  @param dateStr 待检查的日期字符串
- *
- *  @return 返回真或假
- */
-+ (BOOL)checkOutDateIsAvailable:(NSString *)dateStr;
++ (NSArray*)saveTheYearMonthDayFromDateStr:(NSString*)dateStr;
 
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "HYToolKitHeader.h"
 
 @interface ViewController ()
 
@@ -56,15 +55,15 @@
 
 - (IBAction)btn5Avtion:(id)sender
 {
-    if ([NSDate checkOutDateIsAvailable:self.outputLabel.text])
-    {
-        self.outputLabel.text = [NSDate translateDateStr:self.outputLabel.text withWantedType:DateWithChineseStyle];
-        self.outputLabel.text = [NSDate returnTheFormatterYouWantWithDateStr:self.outputLabel.text HaveZero:NO];
-    }
-    else
-    {
-        self.outputLabel.text = @"2016年6月1日";
-    }
+//    if ([NSDate checkOutDateIsAvailable:self.outputLabel.text])
+//    {
+//        self.outputLabel.text = [NSDate translateDateStr:self.outputLabel.text withWantedType:DateWithChinese];
+//        self.outputLabel.text = [NSDate returnTheFormatterYouWantWithDateStr:self.outputLabel.text HaveZero:NO];
+//    }
+//    else
+//    {
+//        self.outputLabel.text = @"2016年6月1日";
+//    }
     
     
     self.origionDateLabel.text = @"6/1/2016hah33ha";
@@ -78,7 +77,7 @@
 
 - (IBAction)btn7Action:(UIButton *)sender
 {
-    self.outputLabel.text = [NSDate translateDateStr:self.outputLabel.text withWantedType:DateWithAmericanStyle];
+    self.outputLabel.text = [NSDate translateDateStr:self.outputLabel.text withWantedType:DateWithHorizontalLine];
     
 }
 
